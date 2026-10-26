@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>WoodBud · Калькулятор покриттів</title>
+<style>
+:root{--navy:#132944;--ink:#1e344c;--muted:#728198;--teal:#057f78;--aqua:#d9f6ef;--paper:#f2f6fa;--line:#dae3eb;--amber:#f2b440;--blue:#e6efff;--warn:#fff1e5}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink)}button,input,select{font:inherit}a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}
+.layout{max-width:1540px;margin:auto;display:grid;grid-template-columns:325px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--navy);color:white;padding:28px 23px;min-width:0}.brand{display:flex;align-items:center;gap:13px;padding-bottom:23px;border-bottom:1px solid #31445a}.logo{display:grid;place-items:center;width:46px;height:46px;background:var(--aqua);color:var(--teal);font-size:20px;font-weight:900;border-radius:13px}.brand strong{font-size:20px;letter-spacing:.4px}.brand small{display:block;color:#b5cbd9;font-size:12px}.eyebrow{color:#b1c9d8;text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:1.1px;margin:25px 0 9px}.sidebar label{display:block;color:#e1edf5;font-size:12px;font-weight:600;margin:13px 0 6px}.sidebar select,.sidebar input{width:100%;border:1px solid #5c7286;border-radius:10px;background:#203952;color:white;padding:11px 12px;outline:none}.sidebar select:focus,.sidebar input:focus{border-color:#8ee5d4}.nav-intro{color:#bdcedc;font-size:13px;margin:12px 0 0}.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 17px}.pill{border:1px solid #64788b;color:#d6e8ef;border-radius:999px;padding:7px 11px;background:transparent;font-size:12px;cursor:pointer}.pill.current{background:var(--aqua);border-color:var(--aqua);color:#0b5550;font-weight:800}.areas{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.area{border:1px solid #52738d;border-radius:8px;background:transparent;color:#eaf4fa;padding:9px 0;cursor:pointer;font-size:12px}.area.active{background:#8ce9d3;color:#083f43;font-weight:900;border-color:#8ce9d3}.seperator{border:0;border-top:1px solid #34506a;margin:24px 0}.footer-side{font-size:12px;color:#abc1cf;line-height:1.7}.footer-side a{color:#8ce9d3}
+.content{padding:32px clamp(18px,3.8vw,50px) 55px;min-width:0}.top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:27px}.breadcrumb{color:#74859a;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700}.date{font-size:12px;border:1px solid var(--line);border-radius:999px;background:white;padding:8px 12px;color:var(--muted)}h1{font-size:clamp(25px,3.3vw,38px);letter-spacing:-1.2px;margin:0 0 8px;color:var(--navy);line-height:1.14}p{margin:0 0 12px}.lede{color:var(--muted);font-size:15px;margin-bottom:23px;max-width:760px}.sumcard{background:var(--navy);border-radius:18px;padding:26px 28px;color:white;display:grid;grid-template-columns:minmax(0,1.2fr) 1fr;gap:25px;margin-bottom:23px;box-shadow:0 8px 25px #14283e17}.overline{text-transform:uppercase;color:#b0cbd8;font-size:11px;font-weight:750;letter-spacing:1.3px}.bigprice{font-size:clamp(30px,5vw,50px);font-weight:800;letter-spacing:-1px;margin:7px 0 2px;font-variant-numeric:tabular-nums;line-height:1.15}.small-price{font-size:15px;color:#cde3e9}.sumright{border-left:1px solid #40596f;padding-left:23px;display:flex;flex-direction:column;justify-content:center;gap:10px}.sumright strong{font-size:15px}.sumright p{font-size:13px;color:#c0d6e2;margin:0}.buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:10px}.btn{padding:11px 14px;border:0;border-radius:10px;font-size:13px;font-weight:750;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}.btn.primary{background:#83e3cd;color:#063d41}.btn.secondary{background:#2c4760;color:#fff;border:1px solid #57748a}.btn:hover{filter:brightness(1.03)}
+.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,1fr);gap:19px}.panel{background:white;border:1px solid var(--line);border-radius:15px;padding:20px 23px;min-width:0}.panel h2{margin:0 0 5px;font-size:17px;letter-spacing:-.35px}.sub{font-size:12px;color:var(--muted);margin-bottom:13px}.line{border-bottom:1px solid #edf1f4;display:grid;grid-template-columns:minmax(110px,1fr) 100px 113px;gap:14px;padding:11px 0;align-items:start}.line:last-child{border:0}.material{font-weight:700;font-size:13px}.material a{display:block;margin:4px 0 0;font-size:11px;font-weight:500}.count{font-size:12px;color:var(--muted);word-break:break-word}.cost{text-align:right;white-space:nowrap;font-weight:800;color:var(--navy);font-variant-numeric:tabular-nums}.note{border-left:3px solid #e3a940;background:#fff8e9;border-radius:0 9px 9px 0;padding:11px 13px;color:#725929;font-size:12px;margin-top:12px}.technical{background:#edf7f5;border-radius:10px;padding:13px 14px;font-size:12px;color:#31534c;margin-top:14px}.secondarytext{font-size:12px;color:#748399}.tiny{font-size:11px;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:15px;background:white;margin-top:23px}table{width:100%;border-collapse:collapse}th{text-transform:uppercase;letter-spacing:.5px;font-size:11px;color:#708499;background:#f5f8fb;padding:12px 15px;text-align:right}th:first-child,td:first-child{text-align:left}td{padding:11px 15px;border-top:1px solid #edf1f4;text-align:right;font-size:13px;font-variant-numeric:tabular-nums}tbody tr{cursor:pointer}tbody tr:hover{background:#f5fbfa}tbody tr.active{background:#e0f7ee;font-weight:800}td:first-child{font-weight:700}.heading{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:25px}.heading h2{margin:0;font-size:19px}.callout{background:#fff;padding:16px 19px;border:1px solid #dde4eb;border-radius:12px;margin-top:19px;color:#667c90;font-size:12px;line-height:1.65}.callout strong{color:#264053}.status{font-size:11px;display:inline-block;padding:4px 9px;border-radius:999px;background:#fff1df;color:#935f18;font-weight:750}.tag{background:#ecf7f5;color:#26695f;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:750}.credit{margin-top:25px;font-size:11px;color:#8495a6}.toast{position:fixed;right:22px;bottom:22px;padding:12px 18px;background:#183a35;color:#ddfff8;border-radius:10px;box-shadow:0 8px 36px #0003;transform:translateY(100px);opacity:0;transition:.2s;z-index:15;font-weight:700;font-size:13px}.toast.show{transform:translateY(0);opacity:1}
+@media(max-width:1100px){.layout{grid-template-columns:290px minmax(0,1fr)}.grid{grid-template-columns:1fr}.line{grid-template-columns:1fr 115px 100px}}
+@media(max-width:790px){.layout{display:block}.sidebar{padding:20px}.sidebar .brand{padding-bottom:12px}.sidebar .eyebrow{margin-top:15px}.areas{grid-template-columns:repeat(10,1fr)}.area{padding:7px 0}.content{padding:23px 16px 38px}.sumcard{grid-template-columns:1fr;padding:20px}.sumright{border-left:0;border-top:1px solid #40596f;padding:17px 0 0}.bigprice{font-size:37px}.grid{grid-template-columns:1fr}.panel{padding:17px}.line{grid-template-columns:minmax(0,1fr) 95px 84px;gap:8px}.footer-side{display:none}}
+@media(max-width:490px){.areas{grid-template-columns:repeat(5,1fr)}.btn{width:100%}.line{grid-template-columns:minmax(0,1fr) 80px 74px}.cost{font-size:12px}}
+</style>
+</head>
+<body><div id="priceGate" style="position:fixed;inset:0;background:#132944f5;z-index:100;display:grid;place-items:center;color:white;padding:24px"><div style="max-width:520px"><h2>WoodBud · локальний прайс</h2><p>Завантажте файл woodbud-prices.json. Ціни зберігаються лише у цьому браузері та не передаються на сервер.</p><input id="priceFile" type="file" accept=".json,application/json"><p id="priceError"></p></div></div><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">WB</div><div><strong>WoodBud</strong><small>калькулятор полімерних підлог</small></div></div>
+  <div class="eyebrow">01 · Тип покриття</div>
+  <div class="chips" id="catChips"></div>
+  <label for="scheme">Конкретна система</label><select id="scheme"></select>
+  <p class="nav-intro" id="planDesc"></p>
+  <div class="eyebrow">02 · Площа об'єкта</div>
+  <div class="areas" id="areaButtons"></div>
+  <label for="customArea">Або впиши будь-яку площу (1–300 м²)</label>
+  <input type="number" id="customArea" min="1" max="300" step="0.1" value="20">
+  <div class="eyebrow">03 · Персональні умови</div>
+  <label for="discount">Знижка, %</label><input type="number" id="discount" value="0" min="0" max="50" step="1">
+  <hr class="seperator">
+  <div class="footer-side">Ціни: <b>PAHATRON 15.10.2026</b>, мармур <b>21.10.2026</b>, Pagasil <b>21.05.2026</b>.<br><br>За зміни ціни за упаковку оновіть Excel-версію. Доставка, роботи, гідроізоляція, ремонт, інструменти не враховані.</div>
+</aside>
+<main class="content">
+  <div class="top"><span class="breadcrumb">Матеріали / швидке комерційне</span><span class="date">Версія 26.10.2026 • Ціни в євро</span></div>
+  <h1 id="headline">Розрахунок покриття</h1>
+  <p class="lede" id="intro">Матеріали, фасування і готовий текст для клієнта.</p>
+  <div class="sumcard"><div>
+    <div class="overline">Повна вартість матеріалів</div><div class="bigprice" id="grand">—</div>
+    <div class="small-price" id="perM2">— €/м²</div>
+    <div class="buttons"><button class="btn primary" id="copyOffer">▣ Скопіювати пропозицію</button><button class="btn secondary" id="copyList">⧉ Комплектація</button></div>
+  </div><div class="sumright"><strong id="areaSummary"></strong><div><span class="status" id="status">—</span></div><p id="context">—</p></div></div>
+  <div class="grid">
+    <section class="panel"><h2>Що саме потрібно купити</h2><p class="sub">Кількість упаковок уже підібрана з доступних фасувань.</p><div id="materials"></div></section>
+    <section class="panel"><h2>Професійна примітка</h2><p class="sub">Важливо перед відправленням пропозиції клієнту.</p><div class="technical" id="technology"></div>
+       <div class="note">Площа й ціна — не заміна технічного огляду основи. Дефекти бетону, ремонт, гідроізоляція, кварц, декоративний фініш і доставка розраховуються окремо.</div>
+       <p class="secondarytext" style="margin-top:17px">УФ-стійкість, сумісність ґрунтовки, фракцію каменю та фактичну товщину перевіряйте в технолога.</p></section>
+  </div>
+  <div class="heading"><h2>Таблиця цін: від 10 до 100 м²</h2><span class="tag">Натисніть на рядок, щоб вибрати площу</span></div>
+  <div class="tablewrap"><table><thead><tr><th>Площа</th><th>Разом, €</th><th>€/м²</th><th>К-ть компонентів</th></tr></thead><tbody id="areaComparison"></tbody></table></div>
+  <div class="callout"><strong>Джерела.</strong> Фасування з довідника WoodBud; ціни завантажуються з локального файлу; технологічні норми — з карток товарів та інформаційних листів. Для готового Stone Carpet є розбіжність норм 5 і 12 кг/м² — обидва сценарії представлені окремо. Крупна округла галька не є рівноцінною дрібній крихті для пішохідної тераси. Матовий лак не гарантує протиковзання.</div>
+  <div class="credit">WoodBud • робочий довідник менеджера • обчислення в браузері, без передавання даних на сервер • Excel-версія для друку та редагування прайса</div>
+</main></div><div id="toast" class="toast">Скопійовано ✓</div>
+<script>
+const DB={"catalog":{"primer":{"name":"Epoxy Base 2K","packs":[{"kg":1,"eur":0},{"kg":5,"eur":0},{"kg":10,"eur":0},{"kg":25,"eur":0}],"url":"https://woodbud.com.ua/uk/epoksidnij-grunt","source":"Локальний прайс"},"eposhield":{"name":"Pagasil EpoShield","packs":[{"kg":1,"eur":0},{"kg":20,"eur":0}],"url":"https://woodbud.com.ua/uk/farba-epoksidna-po-betonu-pagasil-eposhield","source":"Локальний прайс"},"smart":{"name":"Smart Floor","packs":[{"kg":1,"eur":0},{"kg":3,"eur":0},{"kg":5,"eur":0},{"kg":10,"eur":0},{"kg":25,"eur":0}],"url":"https://woodbud.com.ua/uk/kompozicija-samovirivnjujucha-smart","source":"Локальний прайс"},"parking":{"name":"Parking Coat","packs":[{"kg":1,"eur":0},{"kg":5,"eur":0},{"kg":10,"eur":0},{"kg":25,"eur":0}],"url":"https://woodbud.com.ua/uk/kompozicija-dlja-parkingiv","source":"Локальний прайс"},"fastparking":{"name":"Fast Parking Coat","packs":[{"kg":1,"eur":0},{"kg":3,"eur":0},{"kg":5,"eur":0},{"kg":10,"eur":0},{"kg":25,"eur":0}],"url":"https://woodbud.com.ua/uk/kompozicija-dlja-parkingiv-20-40hv","source":"Локальний прайс"},"stone":{"name":"Stone Carpet ready","packs":[{"kg":1,"eur":0},{"kg":3,"eur":0},{"kg":5,"eur":0},{"kg":10,"eur":0},{"kg":25,"eur":0}],"url":"https://woodbud.com.ua/uk/epoksidna-kompozicija-kam-janij-kilim","source":"Локальний прайс"},"binder":{"name":"Stone Binder","packs":[{"kg":1,"eur":0},{"kg":3,"eur":0},{"kg":5,"eur":0},{"kg":10,"eur":0}],"url":"https://woodbud.com.ua/uk/v-jazhuche-dlja-vigotovlennja-kam-janih-kilimiv-stone-binder","source":"Локальний прайс"},"crushed":{"name":"Crushed Marble","packs":[{"kg":1,"eur":0},{"kg":25,"eur":0},{"kg":100,"eur":0}],"url":"https://woodbud.com.ua/uk/marmur-droblenij-crushed-marble","source":"Локальний прайс"},"tumbled":{"name":"Tumbled Marble","packs":[{"kg":1,"eur":0},{"kg":25,"eur":0},{"kg":100,"eur":0}],"url":"https://woodbud.com.ua/uk/catalogue/jepoksidnye-smoly/kam-janij-kilim","source":"Локальний прайс"},"premium":{"name":"Premium Marble Crumb","packs":[{"kg":1,"eur":0},{"kg":25,"eur":0},{"kg":100,"eur":0}],"url":"https://woodbud.com.ua/uk/marmurova-krihta-shlifovana-premium-marble-crumb","source":"Локальний прайс"}},"systems":[{"id":"I1","tier":"ІНТЕРʼЄР","title":"Інтер’єр • бюджет","short":"EpoShield · 2 шари","desc":"Кольорове тонкошарове покриття валиком, якщо основа рівна.","usage":"Приміщення, квартира, підсобка","status":"УТОЧНИТИ ҐРУНТ","tech":"2 шари EpoShield: сумарно 0,28–0,35 кг/м². Обрано верхню межу. Для EpoShield рекомендований інший праймер; заміну Epoxy Base 2K погодити.","parts":[{"key":"primer","rate":0.3},{"key":"eposhield","rate":0.35}]},{"id":"I2","tier":"ІНТЕРʼЄР","title":"Інтер’єр • практичний","short":"Parking Coat · 1 мм","desc":"Міцна наливна композиція, базова товщина ≈ 1 мм.","usage":"Комерційне приміщення, коридор","status":"ПОПЕРЕДНЬО","tech":"Орієнтир ≈ 1 кг/м² на 1 мм; наносити за картою.","parts":[{"key":"primer","rate":0.3},{"key":"parking","rate":1.0}]},{"id":"I3","tier":"ІНТЕРʼЄР","title":"Інтер’єр • декор","short":"Parking Coat + малюнок","desc":"Колірна база й малюнок; прозорий PU-фініш НЕ врахований.","usage":"Квартира, кавʼярня, декоративна зона","status":"НЕПОВНА СИСТЕМА","tech":"0,50 кг/м² на базу й орієнтовно 0,05 кг/м² на малюнок. НЕ включено прозорий фініш PU Floor 2K.","parts":[{"key":"primer","rate":0.3},{"key":"parking","rate":0.55}]},{"id":"I4","tier":"ІНТЕРʼЄР","title":"Інтер’єр • наливна 1 мм","short":"Smart Floor · 1 мм","desc":"Самовирівнювальний шар; для рівної міцної стяжки.","usage":"Квартира, коридор","status":"ПОПЕРЕДНЬО","tech":"Розхід Smart Floor 0,8–1,2 кг/м² на 1 мм. Обрано середній 1 кг.","parts":[{"key":"primer","rate":0.3},{"key":"smart","rate":1.0}]},{"id":"I5","tier":"ІНТЕРʼЄР","title":"Інтер’єр • наливна 2 мм","short":"Smart Floor · 2 мм","desc":"Товщий декоративний шар з більшою витратою.","usage":"Квартира, комерційне приміщення","status":"ПОПЕРЕДНЬО","tech":"Розхід Smart Floor 0,8–1,2 кг/м² на 1 мм. Обрано 2 кг/м² на 2 мм.","parts":[{"key":"primer","rate":0.3},{"key":"smart","rate":2.0}]},{"id":"P1","tier":"ПАРКІНГ","title":"Критий паркінг • 1 мм","short":"Parking Coat · 1 мм","desc":"Міцне епоксидне покриття для автомобілів; без кварцу.","usage":"Критий паркінг, гараж","status":"УТОЧНИТИ КВАРЦ","tech":"Parking Coat ≈0,85–1,1 кг/м² на 1 мм; обрано 1.0. Кварцова посипка, фініш, ремонт не включені.","parts":[{"key":"primer","rate":0.3},{"key":"parking","rate":1.0}]},{"id":"P2","tier":"ПАРКІНГ","title":"Критий паркінг • валик","short":"Fast Parking Coat · тонкошар","desc":"Два тонких шари валиком; витрату підтвердити з технологом.","usage":"Гараж, підсобка","status":"ПЕРЕВІРИТИ ВИТРАТУ","tech":"Орієнтир 0,50 кг/м² сумарно, на сайті норма в мл, а не кг. Підтвердити густину, сумарну товщину, потребу у кварці.","parts":[{"key":"primer","rate":0.3},{"key":"fastparking","rate":0.5}]},{"id":"C1","tier":"КАМʼЯНИЙ КИЛИМ","title":"Кам’яний килим • картка 5 мм","short":"Stone Carpet · 5 кг/м²","desc":"Готова кварцова система; витрата згідно картки товару.","usage":"Інтерʼєр, криті зони","status":"СУПЕРЕЧНІ НОРМИ","tech":"Картка 5 кг/м² на шар 5 мм, загальна категорія 12 кг/м² на 5–10 мм. Уточнити по фракції! Готовий комплект, НЕ додавати окремо камінь/клей.","parts":[{"key":"primer","rate":0.3},{"key":"stone","rate":5.0}]},{"id":"C2","tier":"КАМʼЯНИЙ КИЛИМ","title":"Кам’яний килим • резервний","short":"Stone Carpet · 12 кг/м²","desc":"Готова кварцова система; розрахунок за категорією.","usage":"Інтерʼєр, криті зони","status":"СУПЕРЕЧНІ НОРМИ","tech":"Загальна категорія 12 кг/м² на 5–10 мм, картка конкретної композиції — 5 кг/м² на 5 мм. Уточнити! Епоксидна система не є рекомендованою для прямого УФ.","parts":[{"key":"primer","rate":0.3},{"key":"stone","rate":12.0}]},{"id":"O1","tier":"ВУЛИЦЯ","title":"Вулиця • бюджетна фарба","short":"EpoShield · 2 шари","desc":"Тонке кольорове покриття для відкритої зони, але УФ-зміна кольору можлива.","usage":"Відкритий балкон, сходи","status":"УФ / ҐРУНТ УТОЧНИТИ","tech":"Виробник допускає зовнішні роботи, але епоксидка може змінити відтінок на сонці. Водонепроникність балкона не заміняє. Ґрунт погодити.","parts":[{"key":"primer","rate":0.3},{"key":"eposhield","rate":0.35}]},{"id":"O2","tier":"ВУЛИЦЯ","title":"Вулиця • камінь Crushed","short":"Stone Binder + Crushed","desc":"УФ-стійке звʼязувальне + дроблений мармур.","usage":"Тераса, відкрита зона","status":"ҐРУНТ / ФРАКЦІЮ УТОЧНИТИ","tech":"Суміш 12 кг/м², Stone Binder:камінь=1:10 за масою; лише відповідна дрібна фракція, не велика декоративна галька.","parts":[{"key":"primer","rate":0.3},{"key":"binder","rate":1.09090909},{"key":"crushed","rate":10.90909091}]},{"id":"O3","tier":"ВУЛИЦЯ","title":"Вулиця • камінь Tumbled","short":"Stone Binder + Tumbled","desc":"УФ-стійке звʼязувальне + галтований мармур.","usage":"Тераса, декоративна зона","status":"ҐРУНТ / ФРАКЦІЮ УТОЧНИТИ","tech":"12 кг/м² умовно, 1:10. Крупна округла галька НЕ рекомендована для навантаженого покриття, уточнити дрібну фракцію.","parts":[{"key":"primer","rate":0.3},{"key":"binder","rate":1.09090909},{"key":"tumbled","rate":10.90909091}]},{"id":"O4","tier":"ВУЛИЦЯ","title":"Вулиця • Premium Marble","short":"Stone Binder + Premium","desc":"УФ-стійке звʼязувальне + дрібна шліфована крихта.","usage":"Тераса, дизайнерська зона","status":"ҐРУНТ УТОЧНИТИ","tech":"12 кг/м² умовно, 1:10, дрібна шліфована крихта. Пробна карта обовʼязкова.","parts":[{"key":"primer","rate":0.3},{"key":"binder","rate":1.09090909},{"key":"premium","rate":10.90909091}]}]};
+const cats=["УСІ","ІНТЕРʼЄР","ПАРКІНГ","КАМʼЯНИЙ КИЛИМ","ВУЛИЦЯ"];
+const euro=n=>new Intl.NumberFormat('uk-UA',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)+" €";
+const num=n=>new Intl.NumberFormat('uk-UA',{minimumFractionDigits:0,maximumFractionDigits:2}).format(n);
+const $=id=>document.getElementById(id);
+let cat="УСІ", id="I1", area=20, discount=0;
+function getSystem(){return DB.systems.find(x=>x.id===id)||DB.systems[0]}
+function calcPacks(key,needed){
+ const p=DB.catalog[key]; const target=Math.max(1,Math.ceil(needed-1e-6)); const limit=target+Math.max(...p.packs.map(x=>x.kg));
+ const dp=new Array(limit+1).fill(null);dp[0]={cost:0,n:0,counts:{}};
+ for(let i=1;i<=limit;i++){let best=null;
+  for(const pack of p.packs){ if(i<pack.kg||!dp[i-pack.kg])continue;
+    const prev=dp[i-pack.kg],obj={cost:Math.round((prev.cost+pack.eur)*10000)/10000,n:prev.n+1,counts:{...prev.counts}};
+    obj.counts[pack.kg]=(obj.counts[pack.kg]||0)+1;
+    if(!best||obj.cost<best.cost-0.00001||(Math.abs(obj.cost-best.cost)<0.00001&&obj.n<best.n))best=obj;
+  }dp[i]=best;
+ }
+ let best=null;
+ for(let i=target;i<=limit;i++){const v=dp[i];if(!v)continue;if(!best||v.cost<best.cost-0.00001||(Math.abs(v.cost-best.cost)<0.00001&&(i<best.buy||(i===best.buy&&v.n<best.n))))best={...v,buy:i};}
+ return {needed, ...best,packText:Object.entries(best.counts).sort((a,b)=>+b[0]-(+a[0])).map(([kg,n])=>n+" × "+kg+" кг").join(" + ")};
+}
+function estimate(sys,a){
+ const parts=sys.parts.map(({key,rate})=>({key,name:DB.catalog[key].name,url:DB.catalog[key].url,source:DB.catalog[key].source, ...calcPacks(key,rate*a)}));
+ let subtotal=parts.reduce((sum,x)=>sum+x.cost,0);
+ let total=parts.reduce((sum,x)=>sum+Math.round(x.cost*(1-discount/100)*100)/100,0);
+ return {area:a,parts,subtotal,total,per:total/a};
+}
+function chooseCategory(next){
+ cat=next;
+ $('catChips').innerHTML=cats.map(c=>`<button class="pill ${c===cat?'current':''}" data-cat="${c}">${c==='КАМʼЯНИЙ КИЛИМ'?'КАМІНЬ':c}</button>`).join("");
+ document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>chooseCategory(b.dataset.cat));
+ const valid=DB.systems.filter(s=>cat==='УСІ'||s.tier===cat);
+ if(!valid.some(s=>s.id===id))id=valid[0].id;
+ $('scheme').innerHTML=valid.map(s=>`<option value="${s.id}">${s.short} · ${s.id}</option>`).join("");
+ $('scheme').value=id;render();
+}
+function render(){
+ const p=getSystem();const q=estimate(p,area);
+ $('headline').textContent=p.title;
+ $('intro').textContent=p.usage+" · "+p.desc;
+ $('planDesc').textContent=p.desc;
+ $('grand').textContent=euro(q.total);
+ $('perM2').textContent=euro(q.per)+" / м²"+(discount>0?" · знижка "+discount+"%":"");
+ $('status').textContent=p.status;
+ $('context').textContent="Фасування за поточними нормами, закуповується тільки заводська кількість. "+q.parts.length+" позицій.";
+ $('areaSummary').textContent=num(area)+" м² • "+p.short;
+ $('technology').textContent=p.tech;
+ $('materials').innerHTML=q.parts.map(c=>{
+  const cost=c.cost*(1-discount/100);
+  return `<div class="line"><div><div class="material">${c.name}</div><a href="${c.url}" target="_blank" rel="noopener">Картка WoodBud ↗</a><div class="tiny">Потрібно: ${num(c.needed)} кг · Купити: ${num(c.buy)} кг</div></div><div class="count">${c.packText}</div><div class="cost">${euro(cost)}</div></div>`
+ }).join('');
+ $('areaComparison').innerHTML=Array.from({length:10},(_,k)=>{const a=(k+1)*10;const v=estimate(p,a);return `<tr data-area="${a}" class="${Math.abs(a-area)<0.001?'active':''}"><td>${a} м²</td><td>${euro(v.total)}</td><td>${euro(v.per)}</td><td>${v.parts.length}</td></tr>`}).join("");
+ document.querySelectorAll("tr[data-area]").forEach(el=>el.onclick=()=>setArea(+el.dataset.area));
+ $('areaButtons').innerHTML=Array.from({length:10},(_,k)=>{let a=(k+1)*10;return `<button class="area ${Math.abs(a-area)<0.001?'active':''}" data-a="${a}">${a}</button>`}).join("");
+ document.querySelectorAll('button[data-a]').forEach(el=>el.onclick=()=>setArea(+el.dataset.a));
+ $('customArea').value=area;
+}
+function setArea(a){if(!Number.isFinite(a)||a<1||a>300)return;area=a;render()}
+function offer(){
+ const p=getSystem(), e=estimate(p,area);
+ const mats=e.parts.map(c=>`• ${c.name} — потрібно ${num(c.needed)} кг, закупка ${c.packText} (${num(c.buy)} кг): ${euro(c.cost*(1-discount/100))}.`).join("\n");
+ return `Доброго дня! 😊\n\nПідготував для Вас попередній розрахунок матеріалів на ${num(area)} м².\n\nРішення: ${p.short}.\n${p.desc}\n\nМатеріали:\n${mats}\n\nРазом: ${euro(e.total)} (${euro(e.per)}/м²)${discount>0?`; враховано знижку ${discount}%`:''}.\n\nВажливо: ${p.tech}\nПідготовка основи, ремонт, інструменти, доставка, гідроізоляція, кварц або додатковий фініш у вартість не включені. Остаточну комплектацію підтвердимо після огляду/фото основи та погодження технології.\n\nМожу допомогти з вибором матеріалів і технології. 😊`;
+}
+function packlist(){
+ const p=getSystem(),e=estimate(p,area);
+ return `КОМПЛЕКТАЦІЯ WOODBUD\nСистема: ${p.short}\nПлоща: ${num(area)} м²\n\n`+e.parts.map(c=>`${c.name} — ${num(c.needed)} кг потрібно; закупити: ${c.packText} = ${num(c.buy)} кг, ${euro(c.cost*(1-discount/100))}\n${c.url}`).join("\n\n")+`\n\nРАЗОМ: ${euro(e.total)} (${euro(e.per)}/м²)\nСтатус: ${p.status}\nУвага: ${p.tech}`;
+}
+async function copy(text){
+ try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(text)}else{const el=document.createElement("textarea");el.value=text;document.body.appendChild(el);el.select();const ok=document.execCommand('copy');el.remove();if(!ok)throw Error("copy")}}
+ catch(e){const el=document.createElement("textarea");el.value=text;document.body.appendChild(el);el.select();const ok=document.execCommand('copy');el.remove();if(!ok){alert("Копіювання недоступне. Відкрийте сторінку через HTTPS або скористайтеся Excel.");return;}}
+ const t=$("toast");t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200);
+}
+$('scheme').addEventListener('change',e=>{id=e.target.value;render()});
+$('customArea').addEventListener('change',e=>{const x=parseFloat(e.target.value);setArea(x);if(!Number.isFinite(x)||x<1||x>300)alert("Оберіть площу від 1 до 300 м²")});
+$('discount').addEventListener('change',e=>{let v=parseFloat(e.target.value);discount=Number.isFinite(v)?Math.min(50,Math.max(0,v)):0;e.target.value=discount;render()});
+$('copyOffer').onclick=()=>copy(offer());
+$('copyList').onclick=()=>copy(packlist());
+function loadPrices(data){for(const [key,p] of Object.entries(DB.catalog)){if(!Array.isArray(data[key])||data[key].length!==p.packs.length||data[key].some(x=>!Number.isFinite(x)||x<=0))throw Error('Некоректний прайс: '+key);}for(const [key,p] of Object.entries(DB.catalog))p.packs.forEach((pack,i)=>pack.eur=data[key][i]);$('priceGate').style.display='none';chooseCategory("УСІ");setArea(20);}
+$('priceFile').onchange=async e=>{try{const data=JSON.parse(await e.target.files[0].text());loadPrices(data);try{localStorage.setItem('woodbud-local-prices',JSON.stringify(data))}catch{}}catch(err){$('priceError').textContent=err.message}};
+try{const saved=localStorage.getItem('woodbud-local-prices');if(saved)loadPrices(JSON.parse(saved));}catch{}
+
+</script></body></html>
