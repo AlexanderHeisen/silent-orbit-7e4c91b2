@@ -19,8 +19,8 @@
 <body><div id="priceGate" style="position:fixed;inset:0;background:#132944f5;z-index:100;display:grid;place-items:center;color:white;padding:24px"><div style="max-width:520px"><h2>WoodBud · локальний прайс</h2><p>Завантажте розширений прайс v4 (.json). Ціни зберігаються лише у цьому браузері та не передаються на сервер.</p><input id="priceFile" type="file" accept=".json,application/json"><p id="priceError"></p></div></div><div class="layout">
 <aside class="sidebar">
   <div class="brand"><div class="logo">WB</div><div><strong>WoodBud</strong><small>калькулятор полімерних підлог</small></div></div>
-  <div class="eyebrow">01 · Де буде покриття?</div><label for="place">Місце застосування</label><select id="place"></select><p id="placeAdvice" class="nav-intro"></p><div class="eyebrow">Тип покриття</div>
-  <div class="chips" id="catChips"></div>
+  <div class="eyebrow">01 · Де буде покриття?</div><label for="place">Місце застосування</label><select id="place"></select><p id="placeAdvice" class="nav-intro"></p>
+  <div id="catChips" hidden></div>
   <label for="scheme">Конкретна система</label><select id="scheme"></select>
   <p class="nav-intro" id="planDesc"></p>
   <div id="verticalSettings" style="display:none"><label for="verticalRate">Витрата вертикального килима, кг/м²</label><input id="verticalRate" type="number" min="0.01" max="100" step="0.1" value="3"><p class="nav-intro">Готовий килим: 3 кг/м² на 3 мм, фракція 0,1–0,4 мм. Ґрунт-клей: 0,20 кг/м². Для іншої товщини або фракції норму уточніть.</p></div><div class="eyebrow">02 · Площа об'єкта</div>
