@@ -314,6 +314,25 @@ const renderBeforeAppearance=render;render=function(){renderBeforeAppearance();$
 $('patternWish').addEventListener('input',e=>{patternWish=e.target.value.slice(0,200);$('appearanceText').textContent=appearanceText();});
 const quoteBeforeAppearance=offer,listBeforeAppearance=packlist;offer=()=>quoteBeforeAppearance()+'\n\nВигляд покриття: '+appearanceText();packlist=()=>listBeforeAppearance()+'\n\nВигляд покриття: '+appearanceText();
 
+
+// A staircase may be indoors or outdoors; floor recipes cover treads unless stated otherwise.
+let stairLocation='inside';
+const stairLocationSystems={inside:['I4','I5','I2','I3','I1','U1','S1','L1','V1'],outside:['U1','O1','S1','L1','O2','O3','O4','V1']};
+PLACES.steps.ids=[...new Set([...stairLocationSystems.inside,...stairLocationSystems.outside])];
+const stairLocationBox=document.createElement('div');stairLocationBox.id='stairLocationSettings';stairLocationBox.innerHTML='<label for="stairLocation">Де розташовані сходи?</label><select id="stairLocation"><option value="inside">У приміщенні</option><option value="outside">На вулиці</option></select><p class="nav-intro">Місце змінює перелік матеріалів. У назві варіанта вказано, які частини сходів включені у розрахунок.</p>';$('scheme').parentElement.insertBefore(stairLocationBox,$('scheme').previousSibling);
+const validBeforeStairLocation=validSystems;
+validSystems=function(){const list=validBeforeStairLocation();if(place!=='steps')return list;const ids=stairLocationSystems[stairLocation];return list.filter(s=>ids.includes(s.id)).sort((a,b)=>ids.indexOf(a.id)-ids.indexOf(b.id));};
+function stairScope(sys){if(place!=='steps')return '';if(sys.id==='S1')return 'Проступи + вертикальні підсходинки: обидві площі та дві відповідні системи включаються окремо.';if(sys.id==='V1')return 'Лише вертикальні підсходинки / бічні поверхні. Горизонтальні проступи у цей варіант не входять.';return 'Лише горизонтальні проступи: площа й ціна стосуються поверхонь, на які наступають. Покриття підсходинок та бічних вертикалей підбирається й рахується окремо. Самовирівнювальний матеріал автоматично на вертикалі не переноситься.';}
+function stairLocationText(){return stairLocation==='inside'?'У приміщенні':'На вулиці';}
+const appearanceBeforeStairLocation=appearanceText;
+appearanceText=function(){return appearanceBeforeStairLocation()+(place==='steps'?' Сходи: '+stairLocationText()+'. '+stairScope(getSystem()):'');};
+const renderBeforeStairLocation=render;
+render=function(){renderBeforeStairLocation();const stairs=place==='steps',sys=getSystem();$('stairLocationSettings').style.display=stairs?'block':'none';$('stairLocation').value=stairLocation;if(!stairs)return;const labels=validSystems();$('scheme').innerHTML=labels.map(s=>`<option value="${s.id}">${s.id==='S1'?'Кам’яний килим · проступи + підсходинки':s.id==='V1'?'Stone Carpet Vertical · лише вертикалі':s.short+' · лише проступи'}</option>`).join('');$('scheme').value=id;$('placeAdvice').textContent=stairLocation==='inside'?'У приміщенні: гладка однотонна наливна підлога, декоративний малюнок, фарбування, поліуретан або кам’яна фактура. Комплектація залежить від обраних частин сходів.':'На вулиці: поліуретан, фарбування з обмеженнями або кам’яні системи. Врахуйте опади, водовідведення та мокрі проступи.';$('headline').textContent=sys.short+' · сходи '+(stairLocation==='inside'?'у приміщенні':'на вулиці');$('planDesc').textContent=sys.desc+' '+stairScope(sys);$('intro').textContent=stairScope(sys);$('useNotice').textContent=stairScope(sys)+' Для проступів погоджують протиковзку фактуру й край сходинки.'+(stairLocation==='outside'?' Для вулиці — також водовідведення та підготовку під зовнішню експлуатацію.':'');if(!['S1','V1'].includes(id)){$('status').textContent='ЛИШЕ ПРОСТУПИ · '+sys.status;$('context').textContent=stairScope(sys)+(id==='U1'?' Вартість лише PU Floor 2K на вже підготовленій і заґрунтованій основі.':'');$('areaSummary').textContent=num(area)+' м² горизонтальних проступей';}else if(id==='V1'){$('areaSummary').textContent=num(area)+' м² вертикальних поверхонь';}};
+$('stairLocation').addEventListener('change',e=>{stairLocation=e.target.value;chooseCategory('УСІ')});
+const quoteBeforeStairLocation=offer,listBeforeStairLocation=packlist;
+function stairScopeQuote(){return place==='steps'?'\n\nСходи: '+stairLocationText()+'\nОбсяг розрахунку: '+stairScope(getSystem()):'';}
+offer=()=>quoteBeforeStairLocation()+stairScopeQuote();packlist=()=>listBeforeStairLocation()+stairScopeQuote();
+
 $('scheme').addEventListener('change',e=>{id=e.target.value;render()});
 $('customArea').addEventListener('change',e=>{const x=parseFloat(e.target.value);setArea(x);if(!Number.isFinite(x)||x<0.01||x>300)alert("Оберіть площу від 0,01 до 300 м²")});
 $('discount').addEventListener('change',e=>{let v=parseFloat(e.target.value);discount=Number.isFinite(v)?Math.min(50,Math.max(0,v)):0;e.target.value=discount;render()});
